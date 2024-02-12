@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Currency Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <%- include('partials/header', { req: req }) %>
+    <div class="container mt-5">
+        <h2>Currency Converter</h2>
+        <form action="/convert-currency" method="POST">
+            <div class="mb-3">
+                <label for="fromCurrency" class="form-label">From Currency:</label>
+                <input type="text" class="form-control" id="fromCurrency" name="fromCurrency" required>
+            </div>
+            <div class="mb-3">
+                <label for="toCurrency" class="form-label">To Currency:</label>
+                <input type="text" class="form-control" id="toCurrency" name="toCurrency" required>
+            </div>
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount:</label>
+                <input type="number" class="form-control" id="amount" name="amount" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Convert</button>
+        </form>
+        <% if (typeof result !== 'undefined') { %>
+            <div class="alert alert-info" role="alert">
+                <%= result %>
+            </div>
+        <% } %>
+
+        <% if(locals.message){ %>
+            <div class="alert alert-danger" role="alert"><%= message%></div>
+        <% } %>
+    </div>
+</body>
+</html>

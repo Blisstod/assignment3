@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Currency History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <%- include('partials/header', { req: req }) %>
+    <div class="container mt-5">
+        <h2>Currency History</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>From Currency</th>
+                <th>To Currency</th>
+                <th>Amount</th>
+                <th>Converted Amount</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% currencyHistory.forEach(function(entry) { %>
+                <tr>
+                    <td><%= entry.fromCurrency %></td>
+                    <td><%= entry.toCurrency %></td>
+                    <td><%= entry.amount %></td>
+                    <td><%= entry.result.toFixed(2) %></td>
+                    <td><%= new Date(entry.requestDate).toLocaleString() %></td>
+                </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

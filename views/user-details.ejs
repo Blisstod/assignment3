@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>User Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <%- include('partials/header', { req: req }) %>
+    <div class = "container">
+        <header>
+            <h2>User Details</h2>
+        </header>
+        <div class="user-info">
+            <h2><%= user.username%></h2>
+            <p><%= user.id%></p>
+            <div class="user-attributes">
+                <p>Email: <%= user.email%></p>
+                <p>Creation Date: <%= new Date(user.creationDate).toLocaleString() %></p>
+                <p>Updated Date: <%= new Date(user.updateDate).toLocaleString()%></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
