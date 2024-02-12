@@ -19,8 +19,11 @@
   ### mongoose
 
 # API that have been used:
-  ### openweathermap.org
-  ### aqicn.org
-  ### ipgeolocation.io/documentation/astronomy-api.html
+  ### https://currencyapi.com/
+  ### https://api-ninjas.com/api/nutrition
+
+# Admin:
+  ### login: Nurzhau
+  ### password: nur
 
 # The server runs on port 3000
