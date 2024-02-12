@@ -2,14 +2,14 @@ const currencyService = require('../services/currencyService')
 
 class currencyController {
     async convertCurrency(req, res){
-        const { fromCurrencyReq, toCurrencyReq, amount} = req.body;
+        const { fromCurrency, toCurrency, amount} = req.body;
 
-        const fromCurrency = fromCurrencyReq.toUpperCase();
-        const toCurrency = toCurrencyReq.toUpperCase();
+        const newFromCurrency = fromCurrency.toUpperCase();
+        const newCurrency = toCurrency.toUpperCase();
 
         try{
-            const convertedAmount = await currencyService.convert(fromCurrency, toCurrency, amount);
-            console.log(convertedAmount);
+            const convertedAmount = await currencyService.convert(newFromCurrency, newCurrency, amount);
+            // console.log(convertedAmount);
             res.render('currency-converter', {
                 req: req,
                 result: `Converted Amount: ${convertedAmount.toFixed(2)} ${toCurrency}`,
